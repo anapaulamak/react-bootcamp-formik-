@@ -15,7 +15,7 @@ const initialValues = {
 
 export default function Form() {
   const onSubmit = values => {
-    console.log(values)
+    console.log(formik.values)
   };
 
   const formik = useFormik({
@@ -26,20 +26,39 @@ export default function Form() {
   return(
     <>
       <form>
-        <input placeholder="Name" {...formik.getFieldProps('name')}/>
-        <br />
-        <input placeholder="Email" {...formik.getFieldProps('email')} />
-        <br />
-        <input placeholder="Password" {...formik.getFieldProps('password')}/>
-        <br />
-        <input placeholder="confirm password" {...formik.getFieldProps('confirmPassword')}/>
-        <br />
-        <input placeholder="Address" {...formik.getFieldProps('address.street')} />
-        <br />
-        <input placeholder="City" {...formik.getFieldProps('address.city')} />
+        <div>
+          <label>Nome</label>
+          <input placeholder="Seu nome" {...formik.getFieldProps('name')}/>
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input placeholder="email@email.com" {...formik.getFieldProps('email')} />
+        </div>
+
+        <div>
+          <label>Senha</label>
+          <input placeholder="sua senha" {...formik.getFieldProps('password')}/>
+        </div>
+
+        <div>
+          <label>Confirmação de senha</label>
+          <input placeholder="mesma senha" {...formik.getFieldProps('confirmPassword')}/>
+        </div>
+
+        <div>
+          <label>Endereço</label>
+          <input placeholder="endereço" {...formik.getFieldProps('address.street')} />
+        </div>
+
+        <div>
+          <label>Cidade</label>
+          <input placeholder="cidade" {...formik.getFieldProps('address.city')} />
+        </div>
+
       </form>
 
-      <div style={{ textAlign: 'left'}}>
+      <div className='json'>
         <pre>{JSON.stringify(formik.values, null, 2)}</pre>
       </div>
     </>

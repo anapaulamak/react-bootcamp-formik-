@@ -5,7 +5,7 @@ import Form from './Form'
 function App() {
   return (
     <div className="App">
-      <h1>Cadastro de usuário</h1>
+      <h1>Cadastro</h1>
       <Form />
     </div>
   );
